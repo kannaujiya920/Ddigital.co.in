@@ -98,8 +98,26 @@ export default function HeroSlider() {
                   <div className="relative grid place-items-center w-72 h-72 xl:w-80 xl:h-80">
                     <div className="absolute inset-0 rounded-[2.5rem] bg-white/10 backdrop-blur-sm ring-1 ring-white/20 rotate-6" />
                     <div className="absolute inset-0 rounded-[2.5rem] bg-white/10 ring-1 ring-white/20 -rotate-6" />
-                    <div className="relative grid place-items-center w-56 h-56 xl:w-64 xl:h-64 rounded-full bg-white/95 shadow-2xl">
-                      <Icon name={s.icon} className="w-24 h-24 xl:w-28 xl:h-28 text-slate-900" strokeWidth={1.3} />
+                    <div
+                      className="relative grid place-items-center w-56 h-56 xl:w-64 xl:h-64 rounded-full shadow-2xl overflow-hidden"
+                      style={
+                        s.image && s.tint
+                          ? { backgroundImage: `radial-gradient(circle at 50% 38%, #ffffff 0%, ${s.tint[0]} 55%, ${s.tint[1]} 100%)` }
+                          : { backgroundColor: 'rgba(255,255,255,0.95)' }
+                      }
+                    >
+                      {s.image ? (
+                        <>
+                          <img
+                            src={s.image}
+                            alt={s.title}
+                            className="relative z-10 w-[78%] h-[78%] object-contain drop-shadow-xl"
+                          />
+                          <span className="absolute bottom-[18%] w-[54%] h-3.5 rounded-full bg-slate-900/15 blur-md" />
+                        </>
+                      ) : (
+                        <Icon name={s.icon} className="w-24 h-24 xl:w-28 xl:h-28 text-slate-900" strokeWidth={1.3} />
+                      )}
                     </div>
                     <div className="absolute -top-3 -left-4 rounded-2xl bg-amber-400 text-slate-900 font-extrabold text-sm px-4 py-2 shadow-lg rotate-[-6deg]">
                       {s.badge}

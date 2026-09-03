@@ -5,12 +5,24 @@ import Icon from './Icon'
 
 export default function ProductCard({ product }) {
   const [saved, setSaved] = useState(false)
+  const [imgFailed, setImgFailed] = useState(false)
   const discount = Math.round(((product.mrp - product.price) / product.mrp) * 100)
+  const showImage = product.image && !imgFailed
 
   return (
     <div className="group relative flex flex-col rounded-2xl border border-slate-100 bg-white overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
       <div className="relative h-40 sm:h-44 bg-gradient-to-br from-slate-50 to-orange-50 grid place-items-center overflow-hidden">
-        <Icon name={product.icon} className="w-16 h-16 sm:w-20 sm:h-20 text-slate-300 group-hover:text-orange-300 group-hover:scale-110 transition-all duration-300" strokeWidth={1.2} />
+        {showImage ? (
+          <img
+            src={product.image}
+            alt={product.name}
+            loading="lazy"
+            onError={() => setImgFailed(true)}
+            className="h-full w-full object-contain p-4 group-hover:scale-110 transition-transform duration-300"
+          />
+        ) : (
+          <Icon name={product.icon} className="w-16 h-16 sm:w-20 sm:h-20 text-slate-300 group-hover:text-orange-300 group-hover:scale-110 transition-all duration-300" strokeWidth={1.2} />
+        )}
         {discount > 0 && (
           <span className="absolute top-2.5 left-2.5 rounded-full bg-rose-600 text-white text-[11px] font-bold px-2.5 py-1">
             {discount}% OFF

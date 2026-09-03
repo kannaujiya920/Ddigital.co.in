@@ -1,3 +1,7 @@
+import laptopImg from '../assets/laptop-cutout.png'
+import mobileImg from '../assets/mobile.png'
+import acImg from '../assets/ac1-cutout.png'
+
 export const slides = [
   {
     id: 1,
@@ -8,6 +12,8 @@ export const slides = [
     ctaLink: '/products?category=laptops',
     badge: 'Up to 40% Off',
     icon: 'Laptop',
+    image: laptopImg,
+    tint: ['#fff7ed', '#fdba74'],
     from: 'from-orange-600',
     via: 'via-red-600',
     to: 'to-rose-700',
@@ -21,6 +27,8 @@ export const slides = [
     ctaLink: '/products?category=mobiles',
     badge: 'Exchange Bonus',
     icon: 'Smartphone',
+    image: mobileImg,
+    tint: ['#eef2ff', '#93c5fd'],
     from: 'from-indigo-700',
     via: 'via-blue-700',
     to: 'to-cyan-600',
@@ -34,6 +42,7 @@ export const slides = [
     ctaLink: '/repairs',
     badge: 'Same-Day Service',
     icon: 'Wrench',
+    tint: ['#ecfdf5', '#6ee7b7'],
     from: 'from-emerald-700',
     via: 'via-teal-700',
     to: 'to-cyan-700',
@@ -47,6 +56,8 @@ export const slides = [
     ctaLink: '/products?category=acs',
     badge: 'Free Installation',
     icon: 'Snowflake',
+    image: acImg,
+    tint: ['#f0f9ff', '#7dd3fc'],
     from: 'from-sky-700',
     via: 'via-blue-800',
     to: 'to-indigo-800',
